@@ -1,12 +1,12 @@
 {
-  "name": "babel-plugin-throw-cancel",
-  "description": "A Babel plugin for adding `throw cancel` and `catch cancel`",
-  "keywords": ["babel-plugin", "promises", "tasks"],
+  "name": "throw-catch-cancel-syntax",
+  "description": "SweetJS macros for throw cancel and catch cancel",
+  "keywords": ["promises", "tasks"],
   "version": "1.0.0-pre",
   "author": "Domenic Denicola <d@domenic.me> (https://domenic.me/)",
   "license": "WTFPL",
-  "repository": "domenic/babel-plugin-throw-cancel",
-  "main": "lib/babel-plugin-throw-cancel.js",
+  "repository": "domenic/throw-catch-cancel-syntax",
+  "main": "lib/throw-catch-cancel-syntax.js",
   "files": [
     "lib/"
   ],
