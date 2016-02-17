@@ -85,3 +85,6 @@ let catch = macro {
     }
   }
 }
+
+export throw;
+export catch;

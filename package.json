@@ -1,24 +1,28 @@
 {
   "name": "throw-catch-cancel-syntax",
   "description": "SweetJS macros for throw cancel and catch cancel",
-  "keywords": ["promises", "tasks"],
+  "keywords": [
+    "promises",
+    "tasks"
+  ],
   "version": "1.0.0-pre",
   "author": "Domenic Denicola <d@domenic.me> (https://domenic.me/)",
   "license": "WTFPL",
   "repository": "domenic/throw-catch-cancel-syntax",
-  "main": "lib/throw-catch-cancel-syntax.js",
+  "main": "index.js",
   "files": [
-    "lib/"
+    "index.js"
   ],
   "scripts": {
-    "test": "mocha",
+    "baseline-test": "baseline-tester test/fixture-tests.js --cases test/fixtures --input input.js --output expected.js",
+    "test": "npm run baseline-test",
     "lint": "eslint ."
   },
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "devDependencies": {
+    "baseline-tester": "^1.1.1",
     "eslint": "^2.1.0",
-    "mocha": "^2.2.4"
+    "mocha": "^2.2.4",
+    "sweet.js": "^0.7.5"
   }
 }
