@@ -1,0 +1,24 @@
+{
+  "name": "babel-plugin-throw-cancel",
+  "description": "A Babel plugin for adding `throw cancel` and `catch cancel`",
+  "keywords": ["babel-plugin", "promises", "tasks"],
+  "version": "1.0.0-pre",
+  "author": "Domenic Denicola <d@domenic.me> (https://domenic.me/)",
+  "license": "WTFPL",
+  "repository": "domenic/babel-plugin-throw-cancel",
+  "main": "lib/babel-plugin-throw-cancel.js",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "test": "mocha",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "eslint": "^2.1.0",
+    "mocha": "^2.2.4"
+  }
+}
