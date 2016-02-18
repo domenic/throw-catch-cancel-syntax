@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "fixture-test": "baseline-tester test/fixture-tests-runner.js --cases test/fixtures --input input.js --output expected.js",
-    "usage-test": "node test/usage-tests-runner.js",
+    "usage-test": "sjs -m . test/usage-tests.js > test/usage-tests-compiled.js && mocha test/usage-tests-compiled.js",
     "test": "npm run fixture-test",
     "lint": "eslint ."
   },
@@ -24,6 +24,6 @@
     "baseline-tester": "^1.1.1",
     "eslint": "^2.1.0",
     "mocha": "^2.2.4",
-    "sweet.js": "^0.7.5"
+    "sweet.js": "^0.7.7"
   }
 }

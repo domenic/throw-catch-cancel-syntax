@@ -17,3 +17,5 @@ require("throw-catch-cancel-syntax/ignore-unhandled-cancels");
 ```
 
 to avoid program crashes when cancelations bubble to the top of the stack. (This is an important part of the semantics of cancelations; see the linked document.)
+
+You should run as much code as you can through the macro. Anything that is not macro-ified will have the original `try`/`catch` statements, which catch cancelations as if they were exceptions. So ideally you'd run your test framework and dependencies and such through it. Unfortunately SweetJS has a lot of parsing bugs that make this hard in the general case (e.g. code without semicolons breaks it).

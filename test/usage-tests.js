@@ -1,5 +1,6 @@
 "use strict";
 require("../ignore-unhandled-cancels.js");
+require("./helpers/mocha-ignore-cancels.js");
 
 const assert = require("assert");
 
