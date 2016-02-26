@@ -19,7 +19,7 @@ let catch = macro {
   } => {
     return #{
       catch ($exception) {
-        const throwCancelReason = $value.__throwCancel;
+        const throwCancelReason = $exception.__throwCancel;
         if (throwCancelReason === undefined) {
           $catchBody ...
         } else {
@@ -38,8 +38,8 @@ let catch = macro {
     }
   } => {
     return #{
-      catch ($value) {
-        const throwCancelReason = $value.__throwCancel;
+      catch ($exception) {
+        const throwCancelReason = $exception.__throwCancel;
         if (throwCancelReason === undefined) {
           $catchBody ...
         } else {

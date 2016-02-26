@@ -1,7 +1,7 @@
 try {
     a();
-} catch ($value) {
-    const throwCancelReason = $value.__throwCancel;
+} catch (e) {
+    const throwCancelReason = e.__throwCancel;
     if (throwCancelReason === undefined) {
         b(e);
     } else {
