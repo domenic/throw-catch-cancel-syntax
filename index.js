@@ -84,6 +84,14 @@ let catch = macro {
       }
     }
   }
+
+  case {
+    $name($args ...)
+  } => {
+    return #{
+      catch($args ...)
+    }
+  }
 }
 
 export throw;
