@@ -16,7 +16,7 @@
   "scripts": {
     "fixture-test": "baseline-tester test/fixture-tests-runner.js --cases test/fixtures --input input.js --output expected.js",
     "usage-test": "sjs -m . test/usage-tests.js > test/usage-tests-compiled.js && mocha test/usage-tests-compiled.js",
-    "test": "npm run fixture-test",
+    "test": "npm run fixture-test && npm run usage-test",
     "lint": "eslint ."
   },
   "dependencies": {},

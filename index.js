@@ -19,11 +19,10 @@ let catch = macro {
   } => {
     return #{
       catch ($exception) {
-        const throwCancelReason = $exception.__throwCancel;
-        if (throwCancelReason === undefined) {
+        if (!$exception || !Object.prototype.hasOwnProperty.call($exception, "__throwCancel")) {
           $catchBody ...
         } else {
-          let $reason = throwCancelReason;
+          let $reason = $exception.__throwCancel;
           $catchCancelBody ...
         }
       }
@@ -39,11 +38,10 @@ let catch = macro {
   } => {
     return #{
       catch ($exception) {
-        const throwCancelReason = $exception.__throwCancel;
-        if (throwCancelReason === undefined) {
+        if (!$exception || !Object.prototype.hasOwnProperty.call($exception, "__throwCancel")) {
           $catchBody ...
         } else {
-          let $reason = throwCancelReason;
+          let $reason = $exception.__throwCancel;
           $catchCancelBody ...
         }
       }
@@ -57,11 +55,10 @@ let catch = macro {
   } => {
     return #{
       catch ($reason) {
-        const throwCancelReason = $reason.__throwCancel;
-        if (throwCancelReason === undefined) {
+        if (!$reason || !Object.prototype.hasOwnProperty.call($reason, "__throwCancel")) {
           throw $reason;
         } else {
-          $reason = throwCancelReason;
+          $reason = $reason.__throwCancel;
           $catchCancelBody ...
         }
       }
@@ -75,8 +72,7 @@ let catch = macro {
   } => {
     return #{
       catch ($exception) {
-        const throwCancelReason = $exception.__throwCancel;
-        if (throwCancelReason === undefined) {
+        if (!$exception || !Object.prototype.hasOwnProperty.call($exception, "__throwCancel")) {
           $catchBody ...
         } else {
           throw $exception;

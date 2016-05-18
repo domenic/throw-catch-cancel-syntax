@@ -1,11 +1,10 @@
 try {
     a();
 } catch (f) {
-    const throwCancelReason = f.__throwCancel;
-    if (throwCancelReason === undefined) {
+    if (!f || !Object.prototype.hasOwnProperty.call(f, '__throwCancel')) {
         c(f);
     } else {
-        let e = throwCancelReason;
+        let e = f.__throwCancel;
         b(e);
     }
 }

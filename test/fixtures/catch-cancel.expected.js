@@ -1,33 +1,30 @@
 try {
     a();
 } catch (e) {
-    const throwCancelReason = e.__throwCancel;
-    if (throwCancelReason === undefined) {
+    if (!e || !Object.prototype.hasOwnProperty.call(e, '__throwCancel')) {
         throw e;
     } else {
-        e = throwCancelReason;
+        e = e.__throwCancel;
         b(e);
     }
 }
 try {
     a();
 } catch (e2) {
-    const throwCancelReason$2 = e2.__throwCancel;
-    if (throwCancelReason$2 === undefined) {
+    if (!e2 || !Object.prototype.hasOwnProperty.call(e2, '__throwCancel')) {
         throw e2;
     } else {
-        e2 = throwCancelReason$2;
+        e2 = e2.__throwCancel;
         b(e2) + c(e2) * e2;
     }
 }
 try {
     a();
 } catch (e3) {
-    const throwCancelReason$3 = e3.__throwCancel;
-    if (throwCancelReason$3 === undefined) {
+    if (!e3 || !Object.prototype.hasOwnProperty.call(e3, '__throwCancel')) {
         throw e3;
     } else {
-        e3 = throwCancelReason$3;
+        e3 = e3.__throwCancel;
         b(e3);
     }
 }
