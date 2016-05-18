@@ -5,7 +5,7 @@
     "promises",
     "tasks"
   ],
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Domenic Denicola <d@domenic.me> (https://domenic.me/)",
   "license": "WTFPL",
   "repository": "domenic/throw-catch-cancel-syntax",
