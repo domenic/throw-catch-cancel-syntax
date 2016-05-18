@@ -9,16 +9,20 @@ let throw = macro {
 }
 
 // TODO lots of duplication here!
-let catch = macro {
+let try = macro {
   case {
-    $name cancel ($reason:ident) {
+    $name {
+      $tryBody ...
+    } catch cancel ($reason:ident) {
       $catchCancelBody ...
-    } $name ($exception:ident) {
+    } catch ($exception:ident) {
       $catchBody ...
     }
   } => {
     return #{
-      catch ($exception) {
+      try {
+        $tryBody ...
+      } catch ($exception) {
         if (!$exception || !Object.prototype.hasOwnProperty.call($exception, "__throwCancel")) {
           $catchBody ...
         } else {
@@ -30,14 +34,18 @@ let catch = macro {
   }
 
   case {
-    $name ($exception:ident) {
+    $name {
+      $tryBody ...
+    } catch ($exception:ident) {
       $catchBody ...
-    } $name cancel ($reason:ident) {
+    } catch cancel ($reason:ident) {
       $catchCancelBody ...
     }
   } => {
     return #{
-      catch ($exception) {
+      try {
+        $tryBody ...
+      } catch ($exception) {
         if (!$exception || !Object.prototype.hasOwnProperty.call($exception, "__throwCancel")) {
           $catchBody ...
         } else {
@@ -49,12 +57,16 @@ let catch = macro {
   }
 
   case {
-    $name cancel ($reason:ident) {
+    $name {
+      $tryBody ...
+    } catch cancel ($reason:ident) {
       $catchCancelBody ...
     }
   } => {
     return #{
-      catch ($reason) {
+      try {
+        $tryBody ...
+      } catch ($reason) {
         if (!$reason || !Object.prototype.hasOwnProperty.call($reason, "__throwCancel")) {
           throw $reason;
         } else {
@@ -66,12 +78,16 @@ let catch = macro {
   }
 
   case {
-    $name ($exception:ident) {
+    $name {
+      $tryBody ...
+    } catch ($exception:ident) {
       $catchBody ...
     }
   } => {
     return #{
-      catch ($exception) {
+      try {
+        $tryBody ...
+      } catch ($exception) {
         if (!$exception || !Object.prototype.hasOwnProperty.call($exception, "__throwCancel")) {
           $catchBody ...
         } else {
@@ -80,15 +96,7 @@ let catch = macro {
       }
     }
   }
-
-  case {
-    $name($args ...)
-  } => {
-    return #{
-      catch($args ...)
-    }
-  }
 }
 
 export throw;
-export catch;
+export try;
